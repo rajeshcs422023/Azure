@@ -2,12 +2,8 @@
 ---
 - hosts: localhost
   connection: local
-  
-  vars_prompt:
-    - name: password
-      prompt: "Enter local administrator password"
 
-  tasks:
+ tasks:
     - name: Create resource group
       azure_rm_resourcegroup:
         name: rg-cs-ansible
