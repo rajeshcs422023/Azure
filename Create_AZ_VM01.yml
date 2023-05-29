@@ -1,4 +1,4 @@
-<!--Create a VM in Azure Rajesh C S Date:23/5/2023 -->
+#<!--Create a VM in Azure Rajesh C S Date:23/5/2023 -->
 ---
 - hosts: localhost
   connection: local
