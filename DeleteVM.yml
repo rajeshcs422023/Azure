@@ -1,0 +1,63 @@
+---
+# delete the Virtual machine by passing the name of VM as --extra-vars "vm=vm-cs-web01"
+
+- name: Delete Azure VM
+  hosts: localhost
+  connection: local
+
+  tasks:
+
+  #- include_vars: namevars.yml
+
+  - name: Deleting the Virtual Machine - "vm-cs-web01"
+    azure_rm_virtualmachine:
+      name: "vm-cs-web01"
+      resource_group: rg-cs-ansible
+      state: absent
+    register: vm 
+  - debug:
+      var: vm
+
+  - name: Deleting network interface - "nic-cs-web"
+    azure_rm_networkinterface:
+      name: "nic-cs-web"
+      resource_group: rg-cs-ansible
+      state: absent
+    register: vnet 
+  - debug:
+      var: vnet
+
+  - name: Deleting Public IP - "pip-cs-web"
+    azure_rm_publicipaddress:
+      name: "pip-cs-web"
+      resource_group: rg-cs-ansible
+      state: absent
+    register: pip
+  - debug:
+      var: pip
+
+  - name: Deleteing virtual network
+    azure_rm_virtualnetwork:
+      name: vnet-cs-web
+      resource_group: rg-cs-ansible
+      state: absent
+    register: vnet
+  - debug:
+      var: vnet
+
+  - name: Deleting Network Security group
+    azure_rm_securitygroup:
+      name: nsg-cs-web
+      resource_group: rg-cs-ansible
+      state: absent
+    register: nsg
+  - debug:
+      var: nsg
+
+  - name: Deleting resource group
+    azure_rm_resourcegroup:
+      name: rg-cs-ansible
+      state: absent
+    register: rg
+  - debug:
+      var: rg
