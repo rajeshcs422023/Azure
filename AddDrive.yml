@@ -4,4 +4,4 @@
     name: mymanageddisk
     location: eastus
     resource_group: myResourceGroup
-    disk_size_gb: 4
+    disk_size_gb: 10
