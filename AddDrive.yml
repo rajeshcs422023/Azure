@@ -1,4 +1,7 @@
 ---
+- hosts: localhost
+  connection: local
+  
 - name: Create managed disk
   azure_rm_manageddisk:
     name: rcsmanagenddisk
