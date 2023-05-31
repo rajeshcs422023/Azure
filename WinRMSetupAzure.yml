@@ -5,8 +5,8 @@
     - name: create Azure vm extension to enable HTTPS WinRM listener
           azure_rm_virtualmachineextension:
             name: winrm-extension
-            resource_group: ansible-rg
-            virtual_machine_name: winWeb01
+            resource_group: rg-cs-ansible
+            virtual_machine_name: vm-cs-web01
             publisher: Microsoft.Compute
             virtual_machine_extension_type: CustomScriptExtension
             type_handler_version: '1.9'
