@@ -11,5 +11,5 @@
     location: eastus
     resource_group: rg-cs-ansible
     disk_size_gb: 10
-    managed_by: testvm001
+    managed_by: vm-cs-web01
     attach_caching: read_only
