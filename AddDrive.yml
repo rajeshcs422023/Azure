@@ -1,0 +1,15 @@
+---
+- name: Create managed disk
+  azure_rm_manageddisk:
+    name: rcsmanagenddisk
+    location: eastus
+    resource_group: rg-cs-ansible
+    disk_size_gb: 10
+- name: Mount the managed disk to VM
+  azure_rm_manageddisk:
+    name: rcsmanagenddisk
+    location: eastus
+    resource_group: rg-cs-ansible
+    disk_size_gb: 10
+    managed_by: vm-cs-web01
+    attach_caching: read_only
